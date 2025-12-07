@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
- 	        persist-credentials: false
+          persist-credentials: false
 
       - name: Build
         run: cargo build --verbose
