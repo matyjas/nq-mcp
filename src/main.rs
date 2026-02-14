@@ -102,4 +102,3 @@ impl ServerHandler for NatureIq {
         }
     }
 }
-
