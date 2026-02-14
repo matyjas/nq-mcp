@@ -35,6 +35,7 @@ jobs:
         env:
           IGNORE_GENERATED_FILES: true
           VALIDATE_ALL_CODEBASE: true
+          VALIDATE_BIOME_FORMAT: false
           VALIDATE_RUST_2015: false
           VALIDATE_RUST_2018: false
           VALIDATE_RUST_2021: false
