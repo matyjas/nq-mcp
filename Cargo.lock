@@ -1027,9 +1027,9 @@ dependencies = [
 
 [[package]]
 name = "oas3-gen-support"
-version = "0.25.0"
+version = "0.25.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f24d3bc1f5d548b00fb98c2c9a2ce31ee0666d071dd4f78771ad03c7703598a1"
+checksum = "3197299c344e9a32db9cfd90ebd337e2751a286116b31da7aa25e99d403160d4"
 dependencies = [
  "better_default",
  "bon",
