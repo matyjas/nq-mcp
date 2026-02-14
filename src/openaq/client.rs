@@ -1,4 +1,4 @@
-//!
+//! @generated
 //! AUTO-GENERATED CODE - DO NOT EDIT!
 //!
 //! OpenAQ

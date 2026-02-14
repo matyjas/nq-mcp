@@ -33,6 +33,7 @@ jobs:
       - name: Lint Code Base
         uses: super-linter/super-linter@61abc07d755095a68f4987d1c2c3d1d64408f1f9
         env:
+          IGNORE_GENERATED_FILES: true
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_RUST_2015: false
           VALIDATE_RUST_2018: false
