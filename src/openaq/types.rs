@@ -75,17 +75,15 @@ impl CountriesGetV3CountriesRequest {
     ) -> anyhow::Result<CountriesGetV3CountriesResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                CountriesResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<CountriesResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(CountriesGetV3CountriesResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(CountriesGetV3CountriesResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -127,16 +125,7 @@ pub struct CountriesResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Country>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum CountriesSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -178,9 +167,7 @@ impl CountryGetV3CountriesCountriesIdRequest {
     #[builder]
     pub fn new(countries_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: CountryGetV3CountriesCountriesIdRequestPath {
-                countries_id,
-            },
+            path: CountryGetV3CountriesCountriesIdRequestPath { countries_id },
         };
         request.validate()?;
         Ok(request)
@@ -193,17 +180,15 @@ impl CountryGetV3CountriesCountriesIdRequest {
     ) -> anyhow::Result<CountriesGetV3CountriesResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                CountriesResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<CountriesResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(CountriesGetV3CountriesResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(CountriesGetV3CountriesResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -290,9 +275,10 @@ impl GetInstrumentsByManufacturerV3ManufacturersManufacturersIdInstrumentsReques
     #[builder]
     pub fn new(manufacturers_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: GetInstrumentsByManufacturerV3ManufacturersManufacturersIdInstrumentsRequestPath {
-                manufacturers_id,
-            },
+            path:
+                GetInstrumentsByManufacturerV3ManufacturersManufacturersIdInstrumentsRequestPath {
+                    manufacturers_id,
+                },
         };
         request.validate()?;
         Ok(request)
@@ -305,18 +291,18 @@ impl GetInstrumentsByManufacturerV3ManufacturersManufacturersIdInstrumentsReques
     ) -> anyhow::Result<InstrumentsGetV3InstrumentsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                InstrumentsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<InstrumentsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3InstrumentsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(InstrumentsGetV3InstrumentsResponse::UnprocessableEntity(data));
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(InstrumentsGetV3InstrumentsResponse::UnprocessableEntity(
+                data,
+            ));
         }
         let _ = req.bytes().await?;
         return Ok(InstrumentsGetV3InstrumentsResponse::Unknown);
@@ -371,9 +357,7 @@ impl InstrumentGetV3InstrumentsInstrumentsIdRequest {
     #[builder]
     pub fn new(instruments_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: InstrumentGetV3InstrumentsInstrumentsIdRequestPath {
-                instruments_id,
-            },
+            path: InstrumentGetV3InstrumentsInstrumentsIdRequestPath { instruments_id },
         };
         request.validate()?;
         Ok(request)
@@ -386,18 +370,18 @@ impl InstrumentGetV3InstrumentsInstrumentsIdRequest {
     ) -> anyhow::Result<InstrumentsGetV3InstrumentsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                InstrumentsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<InstrumentsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3InstrumentsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(InstrumentsGetV3InstrumentsResponse::UnprocessableEntity(data));
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(InstrumentsGetV3InstrumentsResponse::UnprocessableEntity(
+                data,
+            ));
         }
         let _ = req.bytes().await?;
         return Ok(InstrumentsGetV3InstrumentsResponse::Unknown);
@@ -442,18 +426,18 @@ impl InstrumentsGetV3InstrumentsRequest {
     ) -> anyhow::Result<InstrumentsGetV3InstrumentsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                InstrumentsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<InstrumentsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3InstrumentsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(InstrumentsGetV3InstrumentsResponse::UnprocessableEntity(data));
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(InstrumentsGetV3InstrumentsResponse::UnprocessableEntity(
+                data,
+            ));
         }
         let _ = req.bytes().await?;
         return Ok(InstrumentsGetV3InstrumentsResponse::Unknown);
@@ -520,17 +504,15 @@ impl InstrumentsGetV3LicensesRequest {
     ) -> anyhow::Result<InstrumentsGetV3LicensesResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LicensesResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<LicensesResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3LicensesResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3LicensesResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -569,16 +551,7 @@ pub struct InstrumentsResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Instrument>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum InstrumentsSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -640,9 +613,7 @@ impl LicenseGetV3LicensesLicensesIdRequest {
     #[builder]
     pub fn new(licenses_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: LicenseGetV3LicensesLicensesIdRequestPath {
-                licenses_id,
-            },
+            path: LicenseGetV3LicensesLicensesIdRequestPath { licenses_id },
         };
         request.validate()?;
         Ok(request)
@@ -655,17 +626,15 @@ impl LicenseGetV3LicensesLicensesIdRequest {
     ) -> anyhow::Result<InstrumentsGetV3LicensesResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LicensesResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<LicensesResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3LicensesResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(InstrumentsGetV3LicensesResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -682,16 +651,7 @@ pub struct LicensesResponse {
     pub meta: Option<Meta>,
     pub results: Vec<License>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum LicensesSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -769,9 +729,7 @@ impl LocationFlagsGetV3LocationsLocationsIdFlagsRequest {
         datetime_to: Option<serde_json::Value>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: LocationFlagsGetV3LocationsLocationsIdFlagsRequestPath {
-                locations_id,
-            },
+            path: LocationFlagsGetV3LocationsLocationsIdFlagsRequestPath { locations_id },
             query: LocationFlagsGetV3LocationsLocationsIdFlagsRequestQuery {
                 limit,
                 page,
@@ -790,20 +748,16 @@ impl LocationFlagsGetV3LocationsLocationsIdFlagsRequest {
     ) -> anyhow::Result<SensorFlagsGetV3SensorsSensorIdFlagsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LocationFlagsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<LocationFlagsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(SensorFlagsGetV3SensorsSensorIdFlagsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorFlagsGetV3SensorsSensorIdFlagsResponse::UnprocessableEntity(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorFlagsGetV3SensorsSensorIdFlagsResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
         return Ok(SensorFlagsGetV3SensorsSensorIdFlagsResponse::Unknown);
@@ -845,9 +799,7 @@ impl LocationGetV3LocationsLocationsIdRequest {
     #[builder]
     pub fn new(locations_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: LocationGetV3LocationsLocationsIdRequestPath {
-                locations_id,
-            },
+            path: LocationGetV3LocationsLocationsIdRequestPath { locations_id },
         };
         request.validate()?;
         Ok(request)
@@ -860,17 +812,15 @@ impl LocationGetV3LocationsLocationsIdRequest {
     ) -> anyhow::Result<LocationsGetV3LocationsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LocationsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<LocationsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(LocationsGetV3LocationsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(LocationsGetV3LocationsResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -899,9 +849,7 @@ impl LocationLatestGetV3LocationsLocationsIdLatestRequest {
         datetime_min: Option<serde_json::Value>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: LocationLatestGetV3LocationsLocationsIdLatestRequestPath {
-                locations_id,
-            },
+            path: LocationLatestGetV3LocationsLocationsIdLatestRequestPath { locations_id },
             query: LocationLatestGetV3LocationsLocationsIdLatestRequestQuery {
                 limit,
                 page,
@@ -919,21 +867,18 @@ impl LocationLatestGetV3LocationsLocationsIdLatestRequest {
     ) -> anyhow::Result<LocationLatestGetV3LocationsLocationsIdLatestResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LatestResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(LocationLatestGetV3LocationsLocationsIdLatestResponse::Ok(data));
+            let data =
+                oas3_gen_support::Diagnostics::<LatestResponse>::json_with_diagnostics(req).await?;
+            return Ok(LocationLatestGetV3LocationsLocationsIdLatestResponse::Ok(
+                data,
+            ));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
-                LocationLatestGetV3LocationsLocationsIdLatestResponse::UnprocessableEntity(
-                    data,
-                ),
+                LocationLatestGetV3LocationsLocationsIdLatestResponse::UnprocessableEntity(data),
             );
         }
         let _ = req.bytes().await?;
@@ -1038,17 +983,15 @@ impl LocationsGetV3LocationsRequest {
     ) -> anyhow::Result<LocationsGetV3LocationsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LocationsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<LocationsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(LocationsGetV3LocationsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(LocationsGetV3LocationsResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1109,16 +1052,7 @@ pub struct LocationsResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Location>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum LocationsSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -1153,9 +1087,7 @@ impl ManufacturerGetV3ManufacturersManufacturersIdRequest {
     #[builder]
     pub fn new(manufacturers_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: ManufacturerGetV3ManufacturersManufacturersIdRequestPath {
-                manufacturers_id,
-            },
+            path: ManufacturerGetV3ManufacturersManufacturersIdRequestPath { manufacturers_id },
         };
         request.validate()?;
         Ok(request)
@@ -1168,20 +1100,16 @@ impl ManufacturerGetV3ManufacturersManufacturersIdRequest {
     ) -> anyhow::Result<ManufacturersGetV3ManufacturersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                ManufacturersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<ManufacturersResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ManufacturersGetV3ManufacturersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                ManufacturersGetV3ManufacturersResponse::UnprocessableEntity(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(ManufacturersGetV3ManufacturersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
         return Ok(ManufacturersGetV3ManufacturersResponse::Unknown);
@@ -1226,20 +1154,16 @@ impl ManufacturersGetV3ManufacturersRequest {
     ) -> anyhow::Result<ManufacturersGetV3ManufacturersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                ManufacturersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<ManufacturersResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ManufacturersGetV3ManufacturersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                ManufacturersGetV3ManufacturersResponse::UnprocessableEntity(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(ManufacturersGetV3ManufacturersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
         return Ok(ManufacturersGetV3ManufacturersResponse::Unknown);
@@ -1277,16 +1201,7 @@ pub struct ManufacturersResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Manufacturer>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum ManufacturersSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -1351,9 +1266,7 @@ impl OwnerGetV3OwnersOwnersIdRequest {
     #[builder]
     pub fn new(owners_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: OwnerGetV3OwnersOwnersIdRequestPath {
-                owners_id,
-            },
+            path: OwnerGetV3OwnersOwnersIdRequestPath { owners_id },
         };
         request.validate()?;
         Ok(request)
@@ -1366,17 +1279,14 @@ impl OwnerGetV3OwnersOwnersIdRequest {
     ) -> anyhow::Result<OwnersGetV3OwnersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                OwnersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<OwnersResponse>::json_with_diagnostics(req).await?;
             return Ok(OwnersGetV3OwnersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(OwnersGetV3OwnersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1422,17 +1332,14 @@ impl OwnersGetV3OwnersRequest {
     ) -> anyhow::Result<OwnersGetV3OwnersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                OwnersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<OwnersResponse>::json_with_diagnostics(req).await?;
             return Ok(OwnersGetV3OwnersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(OwnersGetV3OwnersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1471,16 +1378,7 @@ pub struct OwnersResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Owner>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum OwnersSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -1521,9 +1419,7 @@ impl ParameterGetV3ParametersParametersIdRequest {
     #[builder]
     pub fn new(parameters_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: ParameterGetV3ParametersParametersIdRequestPath {
-                parameters_id,
-            },
+            path: ParameterGetV3ParametersParametersIdRequestPath { parameters_id },
         };
         request.validate()?;
         Ok(request)
@@ -1536,17 +1432,15 @@ impl ParameterGetV3ParametersParametersIdRequest {
     ) -> anyhow::Result<ParametersGetV3ParametersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                ParametersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<ParametersResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ParametersGetV3ParametersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ParametersGetV3ParametersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1558,16 +1452,7 @@ pub struct ParameterGetV3ParametersParametersIdRequestPath {
     /// Limit the results to a specific parameters id
     pub parameters_id: i64,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum ParameterType {
     #[serde(rename = "pollutant")]
     #[default]
@@ -1629,17 +1514,15 @@ impl ParametersGetV3ParametersRequest {
     ) -> anyhow::Result<ParametersGetV3ParametersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                ParametersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<ParametersResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ParametersGetV3ParametersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ParametersGetV3ParametersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1702,9 +1585,7 @@ impl ParametersLatestGetV3ParametersParametersIdLatestRequest {
         datetime_min: Option<serde_json::Value>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: ParametersLatestGetV3ParametersParametersIdLatestRequestPath {
-                parameters_id,
-            },
+            path: ParametersLatestGetV3ParametersParametersIdLatestRequestPath { parameters_id },
             query: ParametersLatestGetV3ParametersParametersIdLatestRequestQuery {
                 limit,
                 page,
@@ -1722,21 +1603,18 @@ impl ParametersLatestGetV3ParametersParametersIdLatestRequest {
     ) -> anyhow::Result<LocationLatestGetV3LocationsLocationsIdLatestResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LatestResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(LocationLatestGetV3LocationsLocationsIdLatestResponse::Ok(data));
+            let data =
+                oas3_gen_support::Diagnostics::<LatestResponse>::json_with_diagnostics(req).await?;
+            return Ok(LocationLatestGetV3LocationsLocationsIdLatestResponse::Ok(
+                data,
+            ));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
-                LocationLatestGetV3LocationsLocationsIdLatestResponse::UnprocessableEntity(
-                    data,
-                ),
+                LocationLatestGetV3LocationsLocationsIdLatestResponse::UnprocessableEntity(data),
             );
         }
         let _ = req.bytes().await?;
@@ -1766,16 +1644,7 @@ pub struct ParametersResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Parameter>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum ParametersSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -1832,9 +1701,7 @@ impl ProviderGetV3ProvidersProvidersIdRequest {
     #[builder]
     pub fn new(providers_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: ProviderGetV3ProvidersProvidersIdRequestPath {
-                providers_id,
-            },
+            path: ProviderGetV3ProvidersProvidersIdRequestPath { providers_id },
         };
         request.validate()?;
         Ok(request)
@@ -1847,17 +1714,15 @@ impl ProviderGetV3ProvidersProvidersIdRequest {
     ) -> anyhow::Result<ProvidersGetV3ProvidersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                ProvidersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<ProvidersResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ProvidersGetV3ProvidersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ProvidersGetV3ProvidersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1917,17 +1782,15 @@ impl ProvidersGetV3ProvidersRequest {
     ) -> anyhow::Result<ProvidersGetV3ProvidersResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                ProvidersResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<ProvidersResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ProvidersGetV3ProvidersResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(ProvidersGetV3ProvidersResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
@@ -1979,16 +1842,7 @@ pub struct ProvidersResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Provider>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum ProvidersSortFields {
     #[serde(rename = "id")]
     #[default]
@@ -2059,19 +1913,15 @@ impl SensorDailyAggregateToMonthGetV3SensorsSensorsIdDaysMonthlyRequest {
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2141,19 +1991,15 @@ impl SensorDailyAggregateToYearGetV3SensorsSensorsIdDaysYearlyRequest {
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2202,9 +2048,7 @@ impl SensorDailyGetV3SensorsSensorsIdDaysRequest {
         page: Option<i64>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorDailyGetV3SensorsSensorsIdDaysRequestPath {
-                sensors_id,
-            },
+            path: SensorDailyGetV3SensorsSensorsIdDaysRequestPath { sensors_id },
             query: SensorDailyGetV3SensorsSensorsIdDaysRequestQuery {
                 date_to,
                 date_from,
@@ -2223,20 +2067,16 @@ impl SensorDailyGetV3SensorsSensorsIdDaysRequest {
     ) -> anyhow::Result<SensorDailyGetV3SensorsSensorsIdDaysResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                DailyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<DailyDataResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(SensorDailyGetV3SensorsSensorsIdDaysResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorDailyGetV3SensorsSensorsIdDaysResponse::UnprocessableEntity(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorDailyGetV3SensorsSensorsIdDaysResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
         return Ok(SensorDailyGetV3SensorsSensorsIdDaysResponse::Unknown);
@@ -2307,19 +2147,15 @@ impl SensorDailyMeasurementsAggregateToDowGetV3SensorsSensorsIdDaysDayofweekRequ
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2347,7 +2183,8 @@ pub struct SensorDailyMeasurementsAggregateToDowGetV3SensorsSensorsIdDaysDayofwe
 #[derive(Debug, Clone, validator::Validate, oas3_gen_support::Default)]
 pub struct SensorDailyMeasurementsAggregateToMoyGetV3SensorsSensorsIdDaysMonthofyearRequest {
     pub path: SensorDailyMeasurementsAggregateToMoyGetV3SensorsSensorsIdDaysMonthofyearRequestPath,
-    pub query: SensorDailyMeasurementsAggregateToMoyGetV3SensorsSensorsIdDaysMonthofyearRequestQuery,
+    pub query:
+        SensorDailyMeasurementsAggregateToMoyGetV3SensorsSensorsIdDaysMonthofyearRequestQuery,
 }
 #[bon::bon]
 impl SensorDailyMeasurementsAggregateToMoyGetV3SensorsSensorsIdDaysMonthofyearRequest {
@@ -2378,19 +2215,15 @@ impl SensorDailyMeasurementsAggregateToMoyGetV3SensorsSensorsIdDaysMonthofyearRe
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2432,9 +2265,7 @@ impl SensorFlagsGetV3SensorsSensorIdFlagsRequest {
         datetime_to: Option<serde_json::Value>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorFlagsGetV3SensorsSensorIdFlagsRequestPath {
-                sensor_id,
-            },
+            path: SensorFlagsGetV3SensorsSensorIdFlagsRequestPath { sensor_id },
             query: SensorFlagsGetV3SensorsSensorIdFlagsRequestQuery {
                 limit,
                 page,
@@ -2453,20 +2284,16 @@ impl SensorFlagsGetV3SensorsSensorIdFlagsRequest {
     ) -> anyhow::Result<SensorFlagsGetV3SensorsSensorIdFlagsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                LocationFlagsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<LocationFlagsResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(SensorFlagsGetV3SensorsSensorIdFlagsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorFlagsGetV3SensorsSensorIdFlagsResponse::UnprocessableEntity(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorFlagsGetV3SensorsSensorIdFlagsResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
         return Ok(SensorFlagsGetV3SensorsSensorIdFlagsResponse::Unknown);
@@ -2513,9 +2340,7 @@ impl SensorGetV3SensorsSensorsIdRequest {
     #[builder]
     pub fn new(sensors_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorGetV3SensorsSensorsIdRequestPath {
-                sensors_id,
-            },
+            path: SensorGetV3SensorsSensorsIdRequestPath { sensors_id },
         };
         request.validate()?;
         Ok(request)
@@ -2528,18 +2353,17 @@ impl SensorGetV3SensorsSensorsIdRequest {
     ) -> anyhow::Result<SensorGetV3SensorsSensorsIdResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                SensorsResponse,
-            >::json_with_diagnostics(req)
+            let data = oas3_gen_support::Diagnostics::<SensorsResponse>::json_with_diagnostics(req)
                 .await?;
             return Ok(SensorGetV3SensorsSensorsIdResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(SensorGetV3SensorsSensorsIdResponse::UnprocessableEntity(data));
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorGetV3SensorsSensorsIdResponse::UnprocessableEntity(
+                data,
+            ));
         }
         let _ = req.bytes().await?;
         return Ok(SensorGetV3SensorsSensorsIdResponse::Unknown);
@@ -2578,15 +2402,17 @@ impl SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDailyReques
         page: Option<i64>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDailyRequestPath {
-                sensors_id,
-            },
-            query: SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDailyRequestQuery {
-                datetime_to,
-                datetime_from,
-                limit,
-                page,
-            },
+            path:
+                SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDailyRequestPath {
+                    sensors_id,
+                },
+            query:
+                SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDailyRequestQuery {
+                    datetime_to,
+                    datetime_from,
+                    limit,
+                    page,
+                },
         };
         request.validate()?;
         Ok(request)
@@ -2599,19 +2425,15 @@ impl SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDailyReques
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2646,7 +2468,8 @@ pub struct SensorHourlyMeasurementsAggregateToDayGetV3SensorsSensorsIdHoursDaily
 #[derive(Debug, Clone, validator::Validate, oas3_gen_support::Default)]
 pub struct SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayofweekRequest {
     pub path: SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayofweekRequestPath,
-    pub query: SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayofweekRequestQuery,
+    pub query:
+        SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayofweekRequestQuery,
 }
 #[bon::bon]
 impl SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayofweekRequest {
@@ -2677,19 +2500,15 @@ impl SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayofweekRe
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2717,7 +2536,8 @@ pub struct SensorHourlyMeasurementsAggregateToDowGetV3SensorsSensorsIdHoursDayof
 #[derive(Debug, Clone, validator::Validate, oas3_gen_support::Default)]
 pub struct SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHourofdayRequest {
     pub path: SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHourofdayRequestPath,
-    pub query: SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHourofdayRequestQuery,
+    pub query:
+        SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHourofdayRequestQuery,
 }
 #[bon::bon]
 impl SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHourofdayRequest {
@@ -2748,19 +2568,15 @@ impl SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHourofdayRe
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2788,7 +2604,8 @@ pub struct SensorHourlyMeasurementsAggregateToHodGetV3SensorsSensorsIdHoursHouro
 #[derive(Debug, Clone, validator::Validate, oas3_gen_support::Default)]
 pub struct SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMonthlyRequest {
     pub path: SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMonthlyRequestPath,
-    pub query: SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMonthlyRequestQuery,
+    pub query:
+        SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMonthlyRequestQuery,
 }
 #[bon::bon]
 impl SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMonthlyRequest {
@@ -2823,19 +2640,15 @@ impl SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMonthlyRe
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2869,8 +2682,10 @@ pub struct SensorHourlyMeasurementsAggregateToMonthGetV3SensorsSensorsIdHoursMon
 /// Provides a list of yearly summaries of hourly data by sensor ID
 #[derive(Debug, Clone, validator::Validate, oas3_gen_support::Default)]
 pub struct SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyearRequest {
-    pub path: SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyearRequestPath,
-    pub query: SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyearRequestQuery,
+    pub path:
+        SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyearRequestPath,
+    pub query:
+        SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyearRequestQuery,
 }
 #[bon::bon]
 impl SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyearRequest {
@@ -2901,19 +2716,15 @@ impl SensorHourlyMeasurementsAggregateToMoyGetV3SensorsSensorsIdHoursMonthofyear
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -2976,19 +2787,15 @@ impl SensorHourlyMeasurementsAggregateToYearGetV3SensorsSensorsIdHoursYearlyRequ
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -3037,9 +2844,7 @@ impl SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequest {
         page: Option<i64>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequestPath {
-                sensors_id,
-            },
+            path: SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequestPath { sensors_id },
             query: SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequestQuery {
                 datetime_to,
                 datetime_from,
@@ -3058,19 +2863,15 @@ impl SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequest {
     ) -> anyhow::Result<SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                HourlyDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HourlyDataResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursResponse::UnprocessableEntity(
                     data,
@@ -3150,19 +2951,15 @@ impl SensorMeasurementsAggregatedGetDailyV3SensorsSensorsIdMeasurementsDailyRequ
     ) -> anyhow::Result<SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                MeasurementsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<MeasurementsResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::UnprocessableEntity(
                     data,
@@ -3197,7 +2994,8 @@ pub struct SensorMeasurementsAggregatedGetDailyV3SensorsSensorsIdMeasurementsDai
 #[derive(Debug, Clone, validator::Validate, oas3_gen_support::Default)]
 pub struct SensorMeasurementsAggregatedGetHourlyV3SensorsSensorsIdMeasurementsHourlyRequest {
     pub path: SensorMeasurementsAggregatedGetHourlyV3SensorsSensorsIdMeasurementsHourlyRequestPath,
-    pub query: SensorMeasurementsAggregatedGetHourlyV3SensorsSensorsIdMeasurementsHourlyRequestQuery,
+    pub query:
+        SensorMeasurementsAggregatedGetHourlyV3SensorsSensorsIdMeasurementsHourlyRequestQuery,
 }
 #[bon::bon]
 impl SensorMeasurementsAggregatedGetHourlyV3SensorsSensorsIdMeasurementsHourlyRequest {
@@ -3232,19 +3030,15 @@ impl SensorMeasurementsAggregatedGetHourlyV3SensorsSensorsIdMeasurementsHourlyRe
     ) -> anyhow::Result<SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                MeasurementsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<MeasurementsResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::UnprocessableEntity(
                     data,
@@ -3293,9 +3087,7 @@ impl SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequest {
         page: Option<i64>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequestPath {
-                sensors_id,
-            },
+            path: SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequestPath { sensors_id },
             query: SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequestQuery {
                 datetime_to,
                 datetime_from,
@@ -3314,19 +3106,15 @@ impl SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequest {
     ) -> anyhow::Result<SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                MeasurementsResponse,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::Ok(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<MeasurementsResponse>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
             return Ok(
                 SensorMeasurementsGetV3SensorsSensorsIdMeasurementsResponse::UnprocessableEntity(
                     data,
@@ -3385,9 +3173,7 @@ impl SensorYearlyGetV3SensorsSensorsIdYearsRequest {
         page: Option<i64>,
     ) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorYearlyGetV3SensorsSensorsIdYearsRequestPath {
-                sensors_id,
-            },
+            path: SensorYearlyGetV3SensorsSensorsIdYearsRequestPath { sensors_id },
             query: SensorYearlyGetV3SensorsSensorsIdYearsRequestQuery {
                 date_to,
                 date_from,
@@ -3406,20 +3192,16 @@ impl SensorYearlyGetV3SensorsSensorsIdYearsRequest {
     ) -> anyhow::Result<SensorYearlyGetV3SensorsSensorsIdYearsResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                AnnualDataResponse,
-            >::json_with_diagnostics(req)
-                .await?;
+            let data =
+                oas3_gen_support::Diagnostics::<AnnualDataResponse>::json_with_diagnostics(req)
+                    .await?;
             return Ok(SensorYearlyGetV3SensorsSensorsIdYearsResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(
-                SensorYearlyGetV3SensorsSensorsIdYearsResponse::UnprocessableEntity(data),
-            );
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorYearlyGetV3SensorsSensorsIdYearsResponse::UnprocessableEntity(data));
         }
         let _ = req.bytes().await?;
         return Ok(SensorYearlyGetV3SensorsSensorsIdYearsResponse::Unknown);
@@ -3466,9 +3248,7 @@ impl SensorsGetV3LocationsLocationsIdSensorsRequest {
     #[builder]
     pub fn new(locations_id: i64) -> anyhow::Result<Self> {
         let request = Self {
-            path: SensorsGetV3LocationsLocationsIdSensorsRequestPath {
-                locations_id,
-            },
+            path: SensorsGetV3LocationsLocationsIdSensorsRequestPath { locations_id },
         };
         request.validate()?;
         Ok(request)
@@ -3481,18 +3261,17 @@ impl SensorsGetV3LocationsLocationsIdSensorsRequest {
     ) -> anyhow::Result<SensorGetV3SensorsSensorsIdResponse> {
         let status = req.status();
         if status == http::StatusCode::OK {
-            let data = oas3_gen_support::Diagnostics::<
-                SensorsResponse,
-            >::json_with_diagnostics(req)
+            let data = oas3_gen_support::Diagnostics::<SensorsResponse>::json_with_diagnostics(req)
                 .await?;
             return Ok(SensorGetV3SensorsSensorsIdResponse::Ok(data));
         }
         if status == http::StatusCode::UNPROCESSABLE_ENTITY {
-            let data = oas3_gen_support::Diagnostics::<
-                HTTPValidationError,
-            >::json_with_diagnostics(req)
-                .await?;
-            return Ok(SensorGetV3SensorsSensorsIdResponse::UnprocessableEntity(data));
+            let data =
+                oas3_gen_support::Diagnostics::<HTTPValidationError>::json_with_diagnostics(req)
+                    .await?;
+            return Ok(SensorGetV3SensorsSensorsIdResponse::UnprocessableEntity(
+                data,
+            ));
         }
         let _ = req.bytes().await?;
         return Ok(SensorGetV3SensorsSensorsIdResponse::Unknown);
@@ -3508,16 +3287,7 @@ pub struct SensorsResponse {
     pub meta: Option<Meta>,
     pub results: Vec<Sensor>,
 }
-#[derive(
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    Serialize,
-    Deserialize,
-    oas3_gen_support::Default
-)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, oas3_gen_support::Default)]
 pub enum SortOrder {
     #[serde(rename = "asc")]
     #[default]
@@ -3552,4 +3322,3 @@ pub struct ValidationError {
     #[serde(rename = "type")]
     pub r#type: String,
 }
-

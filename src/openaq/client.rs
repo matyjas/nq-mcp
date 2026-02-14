@@ -8,10 +8,10 @@
 //!
 //! OpenAQ API
 
+use super::types::*;
 use anyhow::Context;
 use reqwest::{Client, Url};
 use validator::Validate;
-use super::types::*;
 pub const BASE_URL: &str = "https://example.com/";
 #[derive(Debug, Clone)]
 pub struct OpenAQClient {
@@ -36,17 +36,19 @@ impl OpenAQClient {
     /// Create a client with a custom base URL.
     pub fn with_base_url(base_url: impl AsRef<str>) -> anyhow::Result<Self> {
         Ok(Self {
-            client: Client::builder().build().context("building reqwest client")?,
+            client: Client::builder()
+                .build()
+                .context("building reqwest client")?,
             base_url: Url::parse(base_url.as_ref()).context("parsing base url")?,
         })
     }
     /// Create a client from an existing `reqwest::Client`.
-    pub fn with_client(
-        base_url: impl AsRef<str>,
-        client: Client,
-    ) -> anyhow::Result<Self> {
+    pub fn with_client(base_url: impl AsRef<str>, client: Client) -> anyhow::Result<Self> {
         let url = Url::parse(base_url.as_ref()).context("parsing base url")?;
-        Ok(Self { client, base_url: url })
+        Ok(Self {
+            client,
+            base_url: url,
+        })
     }
     /// Get countries
     ///
@@ -120,10 +122,7 @@ impl OpenAQClient {
             .push("instruments")
             .push(&request.path.instruments_id.to_string());
         let response = self.client.get(url).send().await?;
-        Ok(
-            InstrumentGetV3InstrumentsInstrumentsIdRequest::parse_response(response)
-                .await?,
-        )
+        Ok(InstrumentGetV3InstrumentsInstrumentsIdRequest::parse_response(response).await?)
     }
     /// Get licenses
     ///
@@ -217,10 +216,7 @@ impl OpenAQClient {
             .push(&request.path.locations_id.to_string())
             .push("flags");
         let response = self.client.get(url).query(&request.query).send().await?;
-        Ok(
-            LocationFlagsGetV3LocationsLocationsIdFlagsRequest::parse_response(response)
-                .await?,
-        )
+        Ok(LocationFlagsGetV3LocationsLocationsIdFlagsRequest::parse_response(response).await?)
     }
     /// Get a location's latest measurements
     ///
@@ -240,12 +236,7 @@ impl OpenAQClient {
             .push(&request.path.locations_id.to_string())
             .push("latest");
         let response = self.client.get(url).query(&request.query).send().await?;
-        Ok(
-            LocationLatestGetV3LocationsLocationsIdLatestRequest::parse_response(
-                    response,
-                )
-                .await?,
-        )
+        Ok(LocationLatestGetV3LocationsLocationsIdLatestRequest::parse_response(response).await?)
     }
     /// Get sensors by location ID
     ///
@@ -265,10 +256,7 @@ impl OpenAQClient {
             .push(&request.path.locations_id.to_string())
             .push("sensors");
         let response = self.client.get(url).send().await?;
-        Ok(
-            SensorsGetV3LocationsLocationsIdSensorsRequest::parse_response(response)
-                .await?,
-        )
+        Ok(SensorsGetV3LocationsLocationsIdSensorsRequest::parse_response(response).await?)
     }
     /// Get manufacturers
     ///
@@ -305,12 +293,7 @@ impl OpenAQClient {
             .push("manufacturers")
             .push(&request.path.manufacturers_id.to_string());
         let response = self.client.get(url).send().await?;
-        Ok(
-            ManufacturerGetV3ManufacturersManufacturersIdRequest::parse_response(
-                    response,
-                )
-                .await?,
-        )
+        Ok(ManufacturerGetV3ManufacturersManufacturersIdRequest::parse_response(response).await?)
     }
     /// Get instruments by manufacturer ID
     ///
@@ -428,9 +411,7 @@ impl OpenAQClient {
             .push("latest");
         let response = self.client.get(url).query(&request.query).send().await?;
         Ok(
-            ParametersLatestGetV3ParametersParametersIdLatestRequest::parse_response(
-                    response,
-                )
+            ParametersLatestGetV3ParametersParametersIdLatestRequest::parse_response(response)
                 .await?,
         )
     }
@@ -577,9 +558,9 @@ impl OpenAQClient {
         let response = self.client.get(url).query(&request.query).send().await?;
         Ok(
             SensorDailyAggregateToMonthGetV3SensorsSensorsIdDaysMonthlyRequest::parse_response(
-                    response,
-                )
-                .await?,
+                response,
+            )
+            .await?,
         )
     }
     /// Get measurements aggregated from day to day of week by sensor ID
@@ -629,9 +610,9 @@ impl OpenAQClient {
         let response = self.client.get(url).query(&request.query).send().await?;
         Ok(
             SensorDailyAggregateToYearGetV3SensorsSensorsIdDaysYearlyRequest::parse_response(
-                    response,
-                )
-                .await?,
+                response,
+            )
+            .await?,
         )
     }
     /// Get measurements aggregated to hour by sensor ID
@@ -653,9 +634,7 @@ impl OpenAQClient {
             .push("hours");
         let response = self.client.get(url).query(&request.query).send().await?;
         Ok(
-            SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequest::parse_response(
-                    response,
-                )
+            SensorHourlyMeasurementsGetV3SensorsSensorsIdHoursRequest::parse_response(response)
                 .await?,
         )
     }
@@ -834,9 +813,7 @@ impl OpenAQClient {
             .push("measurements");
         let response = self.client.get(url).query(&request.query).send().await?;
         Ok(
-            SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequest::parse_response(
-                    response,
-                )
+            SensorMeasurementsGetV3SensorsSensorsIdMeasurementsRequest::parse_response(response)
                 .await?,
         )
     }
@@ -910,10 +887,6 @@ impl OpenAQClient {
             .push(&request.path.sensors_id.to_string())
             .push("years");
         let response = self.client.get(url).query(&request.query).send().await?;
-        Ok(
-            SensorYearlyGetV3SensorsSensorsIdYearsRequest::parse_response(response)
-                .await?,
-        )
+        Ok(SensorYearlyGetV3SensorsSensorsIdYearsRequest::parse_response(response).await?)
     }
 }
-
