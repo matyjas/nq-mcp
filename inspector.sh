@@ -1,5 +1,3 @@
 #!/bin/bash
 
-npx @modelcontextprotocol/inspector cargo run 
-
-
+npx @modelcontextprotocol/inspector cargo run
