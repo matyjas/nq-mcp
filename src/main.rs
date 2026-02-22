@@ -2,7 +2,7 @@ mod nature_iq;
 mod openaq;
 
 use crate::nature_iq::NatureIq;
-use rmcp::{transport::stdio, ServiceExt};
+use rmcp::{ServiceExt, transport::stdio};
 use tracing_subscriber::{self, EnvFilter};
 
 #[tokio::main]
