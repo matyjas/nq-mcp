@@ -1,3 +1,5 @@
+#![allow(clippy::needless_question_mark)]
+#![allow(clippy::needless_return)]
 #![allow(clippy::default_trait_access)]
 #![allow(clippy::doc_markdown)]
 #![allow(clippy::enum_variant_names)]
