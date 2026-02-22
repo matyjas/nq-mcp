@@ -1,8 +1,8 @@
 use crate::openaq::CountriesGetV3CountriesRequest;
 use crate::openaq::CountriesGetV3CountriesRequestQuery;
 use crate::openaq::CountriesGetV3CountriesResponse;
-use crate::openaq::CountryGetV3CountriesCountriesIdRequestPath;
 use crate::openaq::CountryGetV3CountriesCountriesIdRequest;
+use crate::openaq::CountryGetV3CountriesCountriesIdRequestPath;
 use crate::openaq::OpenAQClient;
 
 use reqwest::Client;
@@ -83,20 +83,24 @@ impl NatureIq {
     }
 
     #[tool(description = "Details Air Quality of a Country in the Open Air Quality data set")]
-async fn country_in_open_aq(
-    &self,
-    Parameters(CountryDetailsRequest { countries_id }): Parameters<CountryDetailsRequest>) -> String {
-    let path = CountryGetV3CountriesCountriesIdRequestPath { countries_id };
-    let request = CountryGetV3CountriesCountriesIdRequest { path };
-    let client = prepare_client();
-    let raw_response = client.country_get_v3_countries_countries_id(request).await.unwrap();
-            if let CountriesGetV3CountriesResponse::Ok(response) = raw_response {
+    async fn country_in_open_aq(
+        &self,
+        Parameters(CountryDetailsRequest { countries_id }): Parameters<CountryDetailsRequest>,
+    ) -> String {
+        let path = CountryGetV3CountriesCountriesIdRequestPath { countries_id };
+        let request = CountryGetV3CountriesCountriesIdRequest { path };
+        let client = prepare_client();
+        let raw_response = client
+            .country_get_v3_countries_countries_id(request)
+            .await
+            .unwrap();
+        if let CountriesGetV3CountriesResponse::Ok(response) = raw_response {
             format!("{0:?}", response.results)
         } else {
             println!("an error {:?}", raw_response);
             "Request failed".to_string()
-            }
-}
+        }
+    }
 }
 
 fn prepare_client() -> OpenAQClient {
