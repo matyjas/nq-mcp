@@ -6,7 +6,7 @@ Adding Natural Intelligence to AI conversations since 2026.
 
 ### Prerequisites
 
-A git client, your operating system probably has git already or has a standard way to install it. If not then [this guide should help](https://git-scm.com/install/windows).
+A Git client, your operating system probably has Git already or has a standard way to install it. If not then [this guide should help](https://git-scm.com/install/windows).
 
 You will need an API key from OpenAQ. Navigate to [OpenAQ](https://openaq.org/) and create an account on their site. Your API Key will be on your [personal settings page](https://explore.openaq.org/account).
 
@@ -18,9 +18,9 @@ NQ-MCP has been tested with Gemini CLI, follow these [instructions](https://gemi
 
 1. Configure Gemini CLI by adding the following configuration
 
-```
+```json
     "mcpServers": {
-	"localOpenAq": {
+    "localOpenAq": {
       "command": "cargo",
       "args": ["run"],
       "env": {
@@ -29,7 +29,7 @@ NQ-MCP has been tested with Gemini CLI, follow these [instructions](https://gemi
       "cwd": "./",
       "timeout": 30000,
       "trust": true
-	}
+    }
   }
 ```
 
